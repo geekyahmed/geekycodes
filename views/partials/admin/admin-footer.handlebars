@@ -1,0 +1,305 @@
+<footer class="sticky-footer">
+    <div class="container">
+        <div class="text-center">
+            <small>Copyright © Your Website 2017</small>
+        </div>
+    </div>
+</footer>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fa fa-angle-up"></i>
+</a>
+<!-- Logout Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript-->
+
+<!-- Custom scripts for all pages-->
+<script src="/js/sb-admin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<!-- Custom scripts for this page-->
+<script src="/js/sb-admin-datatables.min.js"></script>
+<script src="/js/sb-admin-charts.min.js"></script>
+
+<script src="vendor/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap JS-->
+<script src="/vendor/bootstrap-4.1/popper.min.js"></script>
+<script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+<!-- Vendor J/S       -->
+<script src="/vendor/slick/slick.min.js">
+</script>/
+<script src="/vendor/wow/wow.min.js"></script>
+<script src="/vendor/animsition/animsition.min.js"></script>
+<script src="/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+</script>/
+<script src="/vendor/counter-up/jquery.waypoints.min.js"></script>
+<script src="/vendor/counter-up/jquery.counterup.min.js">
+</script>/
+<script src="/vendor/circle-progress/circle-progress.min.js"></script>
+<script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="/vendor/chartjs/Chart.bundle.min.js"></script>
+<script src="/vendor/select2/select2.min.js">
+    <script src="/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="/vendor/slimscroll/jquery.slimscroll.js"></script>
+<script src="/vendor/charts/chartist-bundle/chartist.min.js"></script>
+<script src="/vendor/charts/sparkline/jquery.sparkline.js"></script>
+<script src="/vendor/charts/morris-bundle/raphael.min.js"></script>
+<script src="/vendor/charts/morris-bundle/morris.js"></script>
+<script src="/vendor/charts/c3charts/c3.min.js"></script>
+<script src="/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+<script src="/vendor/charts/c3charts/C3chartjs.js"></script>
+<script src="/libs/js/dashboard-ecommerce.js"></script>
+</script>
+<script>
+
+        $(".approveComments").bootstrapSwitch();
+
+
+    $(document).ready(function () {
+            setTimeout(function () {
+                $('.auto-hide').slideUp(300);
+            }, 2000);
+
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "2000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        $('.approveComments').bootstrapSwitch().on('switchChange.bootstrapSwitch', function (e, data) {
+
+            var buttonData = data;
+
+            var id = $(this).attr('data-buttonid');
+
+            $.ajax({
+            url: '/admin/comment',
+                type: 'POST',
+                data: {data: buttonData, id: id },
+                success: function (response) {
+
+                    if (response.toLowerCase() === 'ok') {
+            toastr.success('RECORD updated');
+                    }
+
+                    else {
+            toastr.error('RECORD failed to updated');
+                    }
+
+                }
+            });
+
+
+        });
+
+
+
+
+
+
+
+        $("#create-category-button").on('click', function (e) {
+            e.preventDefault();
+
+            var data = $("#category-title").val();
+
+            $.ajax({
+            url: '/admin/category/create',
+                type: 'POST',
+                data: {name: data },
+                success: function (response) {
+
+                    var html = `<tr>
+            <td>${response.title}</td>
+            <td class="d-flex justify-content-center">
+                <a href="/admin/category/edit/${response._id}" class="btn btn-sm btn-warning mr-2">Edit</a>
+                <form action="/admin/category/${response._id}?newMethod=DELETE" method="post">
+                    <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>`;
+
+
+                    $(".category-list").append(html);
+
+                }
+            });
+
+            $("#category-title").val('');
+        });
+
+
+        $("#update-category-button").on('click', function (e) {
+            e.preventDefault();
+
+            var data = $("#category-title").val();
+            var id = $("#category-id").val();
+
+            $.ajax({
+            url: `/admin/category/edit/${id}`,
+                type: 'POST',
+                data: {name: data },
+                success: function (response) {
+            window.location.href = response.url;
+                }
+            });
+        });
+
+
+    });
+ // ==============================================================
+    if ($(".notification-list").length) {
+
+            $('.notification-list').slimScroll({
+                height: '250px'
+            });
+
+    }
+
+    // ==============================================================
+    // Menu Slim Scroll List
+    // ==============================================================
+
+
+    if ($(".menu-list").length) {
+            $('.menu-list').slimScroll({
+
+            });
+    }
+
+    // ==============================================================
+    // Sidebar scrollnavigation
+    // ==============================================================
+
+    if ($(".sidebar-nav-fixed a").length) {
+            $('.sidebar-nav-fixed a')
+                // Remove links that don't actually link to anything
+
+                .click(function (event) {
+                    // On-page links
+                    if (
+                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+                        location.hostname == this.hostname
+                    ) {
+                        // Figure out element to scroll to
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        // Does a scroll target exist?
+                        if (target.length) {
+                            // Only prevent default if animation is actually gonna happen
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top - 90
+                            }, 1000, function () {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+                        }
+                    };
+                    $('.sidebar-nav-fixed a').each(function () {
+                        $(this).removeClass('active');
+                    })
+                    $(this).addClass('active');
+                });
+
+    }
+
+    // ==============================================================
+    // tooltip
+    // ==============================================================
+    if ($('[data-toggle="tooltip"]').length) {
+
+            $('[data-toggle="tooltip"]').tooltip()
+
+        }
+
+     // ==============================================================
+    // popover
+    // ==============================================================
+       if ($('[data-toggle="popover"]').length) {
+            $('[data-toggle="popover"]').popover()
+
+        }
+     // ==============================================================
+    // Chat List Slim Scroll
+    // ==============================================================
+
+
+        if ($('.chat-list').length) {
+            $('.chat-list').slimScroll({
+                color: 'false',
+                width: '100%'
+
+
+            });
+    }
+    // ==============================================================
+    // dropzone script
+    // ==============================================================
+
+ //     if ($('.dz-clickable').length) {
+            //            $(".dz-clickable").dropzone({ url: "/file/post" });
+            // }
+
+        }); // AND OF JQUERY
+
+
+// $(function() {
+//     "use strict";
+
+
+
+
+   // var monkeyList = new List('test-list', {
+    //    valueNames: ['name']
+
+     // });
+  // var monkeyList = new List('test-list-2', {
+    //    valueNames: ['name']
+
+   // });
+
+
+
+
+
+
+// });
+</script>

@@ -1,0 +1,141 @@
+<div class="dashboard-wrapper">
+  <div class="dashboard-influence">
+    <div class="container-fluid dashboard-content">
+
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="card influencer-profile-data">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-xl-2 col-lg-4 col-md-4 col-sm-4 col-12">
+                  <div class="text-center">
+                    <img src="/images/avatarc.png" alt="User Avatar" class="rounded-circle user-avatar-xxl">
+                  </div>
+                </div>
+                <div class="col-xl-10 col-lg-8 col-md-8 col-sm-8 col-12">
+                  <div class="user-avatar-info">
+                    <div class="m-b-20">
+                      <div class="user-avatar-name">
+                        <h2 class="mb-1">{{user.lastName}} {{user.firstName}}</h2>
+                      </div>
+                      <div class="rating-star  d-inline-block">
+                        <i class="fa fa-fw fa-star"></i>
+                        <i class="fa fa-fw fa-star"></i>
+                        <i class="fa fa-fw fa-star"></i>
+                        <i class="fa fa-fw fa-star"></i>
+                        <i class="fa fa-fw fa-star"></i>
+                        <p class="d-inline-block text-dark">14 Reviews </p>
+                      </div>
+                    </div>
+                    <!--  <div class="float-right"><a href="#" class="user-avatar-email text-secondary">www.henrybarbara.com</a></div> -->
+                    <div class="user-avatar-address">
+                      <p class="border-bottom pb-3">
+                        <span class="d-xl-inline-block d-block mb-2"><i class="fa fa-book mr-2 text-primary "></i>Bio:
+                          {{user.bio}}</span>
+                      </p>
+                      {{!-- <div class="mt-3">
+                        <a href="#" class="badge badge-light mr-1">Fitness</a> <a href="#"
+                          class="badge badge-light mr-1">Life Style</a> <a href="#" class="badge badge-light">Gym</a>
+                      </div> --}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ============================================================== -->
+      <!-- end influencer profile  -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- widgets   -->
+      <!-- ============================================================== -->
+      <div class="row">
+        <!-- ============================================================== -->
+        <!-- four widgets   -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- total views   -->
+        <!-- ============================================================== -->
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-inline-block">
+                <h5 class="text-muted">Total Users</h5>
+                <h2 class="mb-0"> {{user.length}}</h2>
+              </div>
+              <div class="float-right icon-circle-medium  icon-box-lg  bg-info-light mt-1">
+                <i class="fa fa-eye fa-fw fa-sm text-info"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end total views   -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- total followers   -->
+        <!-- ============================================================== -->
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-inline-block">
+                <h5 class="text-muted">Total Posts</h5>
+                <h2 class="mb-0"> {{posts.length}}</h2>
+              </div>
+              <div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
+                <i class="fa fa-user fa-fw fa-sm text-primary"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end total followers   -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- partnerships   -->
+        <!-- ============================================================== -->
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-inline-block">
+                <h5 class="text-muted">Total Categories</h5>
+                <h2 class="mb-0">14</h2>
+              </div>
+              <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
+                <i class="fa fa-handshake fa-fw fa-sm text-secondary"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end partnerships   -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- total earned   -->
+        <!-- ============================================================== -->
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-inline-block">
+                <h5 class="text-muted">Total Comments</h5>
+                <h2 class="mb-0"> 149</h2>
+              </div>
+              <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
+                <i class="fa fa-money-bill-alt fa-fw fa-sm text-brand"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end total earned   -->
+        <!-- ============================================================== -->
+      </div>
+      <!-- ============================================================== -->
+      <!-- end widgets   -->
+      <!-- ============================================================== -->
+
+    </div>
+  </div>
+</div>

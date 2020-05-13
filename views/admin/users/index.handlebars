@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="alert alert-secondary text-center">
+        <h1>ALL POSTS</h1>    
+    </div>
+        <div class="row">
+                            <div class="col-md-12">
+                                <!-- DATA TABLE -->
+                                    <div class="table-data__tool-right">
+                                        <a href="/admin/posts/create" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                            <i class="fa fa-plus"></i>New Post</a>
+                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive table-responsive-data2">
+                                    <table class="table table-data2">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <label class="au-checkbox">
+                                                        <input type="checkbox">
+                                                        <span class="au-checkmark"></span>
+                                                    </label>
+                                                </th>
+                                                <th>Thumbnail</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Comments Allowed</th>
+            <th>Category</th>
+            <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                    {{#each users}}
+                                            <tr class="tr-shadow">
+                                                <td>
+                                                    <label class="au-checkbox">
+                                                        <input type="checkbox">
+                                                        <span class="au-checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td><img class="img-fluid" src="{{file}}"></td>
+                                                <td>
+                                                    <span class="block-email">{{firstName}}</span>
+                                                </td>
+                                                <td class="desc">{{description}}</td>
+                                                <td>{{status}}</td>
+                                                <td>
+                                                    <span class="status--process">{{allowComments}}</span>
+                                                </td>
+                                                <td>{{category.title}}</td>
+                                                <td>
+                                                    <div class="table-data-feature">
+                                                        <a href="/admin/posts/edit/{{_id}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+                                                        <form  class="item" action="/admin/posts/delete/{{id}}?newMethod=DELETE" method="post">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete" type="submit">
+                                                            <i class="fa fa-ban"></i>
+                                                        </button>
+                                                        </form>
+                                                        <a href="/post/{{id}}"  class="item" data-toggle="tooltip" data-placement="top" title="View">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                    {{/each}}
+
+                                        </tbody>
+                                    </table>
+                                </div>

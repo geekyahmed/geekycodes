@@ -1,0 +1,145 @@
+<div id="post-header" class="page-header">
+    <div class="background-img" style="background-image: url({{post.file}});"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="post-meta">
+                    <a class="post-category cat-2" href="category.html">{{post.tag}}</a>
+                    <span class="post-date">{{post.creationDate}}</span>
+                </div>
+                <h1>{{post.title}}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Header -->
+</header>
+<!-- /Header -->
+
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- Post content -->
+            <div class="col-md-8">
+                <div class="section-row sticky-container">
+                    <div class="main-post">
+                        <h3>{{post.title}}</h3>
+                        <p>{{post.description}}</p>
+                    </div>
+                    <div class="post-shares sticky-shares">
+                        <a href="#" class="share-facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="share-twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="share-google-plus"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" class="share-pinterest"><i class="fa fa-pinterest"></i></a>
+                        <a href="#" class="share-linkedin"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <!-- ad -->
+                <div class="section-row text-center">
+                    <a href="#" style="display: inline-block;margin: auto;">
+                        <img class="img-responsive" src="./img/ad-2.jpg" alt="">
+                    </a>
+                </div>
+                <!-- ad -->
+
+                <!-- author -->
+                <div class="section-row">
+                    <div class="post-author">
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object" src="/images/avatarc.png" alt="">
+                            </div>
+                            <div class="media-body">
+                                <div class="media-heading">
+                                    {{#if user}}
+                                    <h3>{{user.lastName}} {{user.firstName}}</h3>
+                                    <p>{{user.bio}}.</p>
+
+                                    {{else}}
+                                    <h3>Anonymous - Login To See Name</h3>
+                                    {{/if}}
+                                </div>
+                                <ul class="author-social">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /author -->
+                <div class="section-row">
+                    <div class="section-title">
+                        <h2>Leave a reply</h2>
+                        <p>your email address will not be published. required fields are marked *</p>
+                    </div>
+                    <form class="post-reply" action="/post/{{post._id}}" method="POST">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <span>Full Name *</span>
+                                    <input class="input" type="text" name="full_name">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <span>Email *</span>
+                                    <input class="input" type="email" name="email">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea class="input" name="comment_body" placeholder="Message"></textarea>
+                                </div>
+                                <input type="hidden" name="id" value="{{post._id}}">
+
+                                <button type="submit" class="primary-button">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- comments -->
+                <div class="section-row">
+                    <div class="section-title">
+                        <h2>{{comments.length}} Comments</h2>
+                    </div>
+
+                    <div class="post-comments">
+                        <!-- comment -->
+                        {{#each post.comments}}
+
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object" src="/images/avatarc.png" alt="">
+                            </div>
+                            <div class="media-body">
+                                <div class="media-heading">
+                                    <h4>{{full_name}}</h4>
+                                </div>
+                                <p>{{body}}</p>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /comments -->
+</div>
+<!-- /aside -->
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+<!-- /section -->

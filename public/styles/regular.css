@@ -1,0 +1,813 @@
+@charset "utf-8";
+/* CSS Document */
+
+/******************************
+
+[Table of Contents]
+
+1. Fonts
+2. Body and some general stuff
+3. Header
+	3.1 Logo
+	3.2 Main Navigation
+	3.3 Weather and Search
+	3.4 Hamburger
+4. Menu
+5. Home
+6. Post Content
+7. Footer
+
+
+******************************/
+
+/***********
+1. Fonts
+***********/
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700|Work+Sans:300,400,500,600,700,800,900');
+
+/*********************************
+2. Body and some general stuff
+*********************************/
+
+*
+{
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+body
+{
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	background: #f7f7f7;
+	color: #a5a5a5;
+}
+div
+{
+	display: block;
+	position: relative;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+ul
+{
+	list-style: none;
+	margin-bottom: 0px;
+}
+p
+{
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	line-height: 1.45;
+	font-weight: 500;
+	color: rgba(0,0,0,0.5);
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+p:last-of-type
+{
+	margin-bottom: 0;
+}
+p a
+{
+	display: inline;
+	position: relative;
+	color: inherit;
+	border-bottom: solid 1px #ffa07f;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+a, a:hover, a:visited, a:active, a:link
+{
+	text-decoration: none;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+p a:active
+{
+	position: relative;
+	color: #FF6347;
+}
+p a:hover
+{
+	color: #FFFFFF;
+	background: #ffa07f;
+}
+p a:hover::after
+{
+	opacity: 0.2;
+}
+::selection
+{
+	
+}
+p::selection
+{
+	
+}
+h1{font-size: 48px;}
+h2{font-size: 36px;}
+h3{font-size: 24px;}
+h4{font-size: 18px;}
+h5{font-size: 14px;}
+h1, h2, h3, h4, h5, h6
+{
+	font-family: 'Open Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+h1::selection, 
+h2::selection, 
+h3::selection, 
+h4::selection, 
+h5::selection, 
+h6::selection
+{
+	
+}
+.form-control
+{
+	color: #db5246;
+}
+section
+{
+	display: block;
+	position: relative;
+	box-sizing: border-box;
+}
+.clear
+{
+	clear: both;
+}
+.clearfix::before, .clearfix::after
+{
+	content: "";
+	display: table;
+}
+.clearfix::after
+{
+	clear: both;
+}
+.clearfix
+{
+	zoom: 1;
+}
+.float_left
+{
+	float: left;
+}
+.float_right
+{
+	float: right;
+}
+.trans_200
+{
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.trans_300
+{
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+.trans_400
+{
+	-webkit-transition: all 400ms ease;
+	-moz-transition: all 400ms ease;
+	-ms-transition: all 400ms ease;
+	-o-transition: all 400ms ease;
+	transition: all 400ms ease;
+}
+.trans_500
+{
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+}
+.fill_height
+{
+	height: 100%;
+}
+.super_container
+{
+	width: 100%;
+	overflow: hidden;
+}
+.prlx_parent
+{
+	overflow: hidden;
+}
+.prlx
+{
+	height: 130% !important;
+}
+.parallax-window
+{
+    min-height: 400px;
+    background: transparent;
+}
+.nopadding
+{
+	padding: 0px !important;
+}
+
+/*********************************
+3. Header
+*********************************/
+
+.header
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.header_content
+{
+	height: 106px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.header.scrolled
+{
+	background: rgba(0,0,0,0.75);
+	box-shadow: 0px 5px 5px rgba(0,0,0,0.1);
+}
+.header.scrolled .header_content
+{
+	height: 80px;
+}
+
+/*********************************
+3.1 Logo
+*********************************/
+
+.logo a
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 0.075em;
+}
+
+/*********************************
+3.2 Main Navigation
+*********************************/
+
+.main_nav
+{
+	margin-left: 46px;
+}
+.main_nav ul li
+{
+	display: inline-block;
+}
+.main_nav ul li:not(:last-child)
+{
+	margin-right: 29px;
+}
+.main_nav ul li a
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	color: rgba(255,255,255,0.5);
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.main_nav ul li a:hover,
+.main_nav ul li.active a
+{
+	color: rgba(255,255,255,1);
+}
+
+/*********************************
+3.3 Weather and Search
+*********************************/
+
+.weather
+{
+	display: inline-block;
+	margin-right: 26px;
+	vertical-align: middle;
+}
+.temperature
+{
+	display: inline-block;
+	vertical-align: middle;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	color: #FFFFFF;
+	margin-right: 4px;
+}
+.weather_icon
+{
+	display: inline-block;
+}
+.search_container form
+{
+	display: inline-block;
+	position: relative;
+}
+.header_search_input
+{
+	display: inline-block;
+	width: 262px;
+	height: 46px;
+	background: rgba(255,255,255,0.2);
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	padding-left: 49px;
+	color: #FFFFFF;
+}
+.header_search_input::-webkit-input-placeholder
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	color: rgba(255,255,255,0.5) !important;
+}
+.header_search_input:-moz-placeholder
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	color: rgba(255,255,255,0.5) !important;
+}
+.header_search_input::-moz-placeholder
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	color: rgba(255,255,255,0.5) !important;
+} 
+.header_search_input:-ms-input-placeholder
+{ 
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	color: rgba(255,255,255,0.5) !important;
+}
+.header_search_input::input-placeholder
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	color: rgba(255,255,255,0.5) !important;
+}
+.header_search_icon
+{
+	position: absolute;
+	top: 50%;
+	left: 25px;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+/*********************************
+3.4 Hamburger
+*********************************/
+
+.hamburger
+{
+	display: none;
+	cursor: pointer;
+}
+.hamburger i
+{
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+}
+.hamburger:hover i
+{
+	color: rgba(255,255,255,0.5);
+}
+
+/*********************************
+4. Menu
+*********************************/
+
+.menu
+{
+	position: fixed;
+	top: 0;
+	right: -400px;
+	width: 400px;
+	height: 100vh;
+	background: #FFFFFF;
+	z-index: 101;
+	padding-right: 60px;
+	padding-top: 87px;
+	padding-left: 50px;
+}
+.menu .logo a
+{
+	color: #000000;
+}
+.menu.active
+{
+	right: 0;
+}
+.menu_close_container
+{
+	position: absolute;
+	top: 30px;
+	right: 60px;
+	width: 18px;
+	height: 18px;
+	transform-origin: center center;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	cursor: pointer;
+}
+.menu_close
+{
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3D;
+}
+.menu_close div
+{
+	width: 100%;
+	height: 2px;
+	background: #232323;
+	top: 8px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.menu_close div:last-of-type
+{
+	-webkit-transform: rotate(90deg) translateX(-2px);
+	-moz-transform: rotate(90deg) translateX(-2px);
+	-ms-transform: rotate(90deg) translateX(-2px);
+	-o-transform: rotate(90deg) translateX(-2px);
+	transform: rotate(90deg) translateX(-2px);
+	transform-origin: center;
+}
+.menu_close:hover div
+{
+	background: #937c6f;
+}
+.menu .logo
+{
+	margin-bottom: 60px;
+}
+.menu_nav ul li
+{
+	margin-bottom: 11px;
+}
+.menu_nav ul li a
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: rgba(0,0,0,1);
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.menu_nav ul li a:hover
+{
+	color: #937c6f;
+}
+.menu .search
+{
+	width: 100%;
+	margin-bottom: 67px;
+}
+.search
+{
+	display: inline-block;
+	width: 400px;
+	-webkit-transform: translateY(2px);
+	-moz-transform: translateY(2px);
+	-ms-transform: translateY(2px);
+	-o-transform: translateY(2px);
+	transform: translateY(2px);
+}
+.menu .header_search_input
+{
+	width: 100%;
+	background: rgba(0,0,0,0.1);
+	border-radius: 6px;
+	color: rgba(0,0,0,0.5);
+}
+.menu .header_search_input::-webkit-input-placeholder
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	color: rgba(0,0,0,0.4) !important;
+}
+.menu .header_search_input:-moz-placeholder
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	color: rgba(0,0,0,0.4) !important;
+}
+.menu .header_search_input::-moz-placeholder
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	color: rgba(0,0,0,0.4) !important;
+} 
+.menu .header_search_input:-ms-input-placeholder
+{ 
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	color: rgba(0,0,0,0.4) !important;
+}
+.menu .header_search_input::input-placeholder
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	color: rgba(0,0,0,0.4) !important;
+}
+
+/*********************************
+5. Home
+*********************************/
+
+.home
+{
+	width: 100%;
+	height: 360px;
+}
+.home_background
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/*********************************
+6. Post Content
+*********************************/
+
+.post_content
+{
+	margin-top: 100px;
+	margin-bottom: 160px;
+}
+.page_content
+{
+	background: #f7f7f7;
+}
+.category
+{
+	margin-top: 80px;
+}
+.post_body
+{
+	padding-left: 69px;
+	padding-top: 59px;
+	padding-right: 68px;
+	padding-bottom: 45px;
+	background: #FFFFFF;
+	border-radius: 6px;
+}
+.post_p
+{
+	font-size: 16px;
+	line-height: 1.875;
+	color: rgba(0,0,0,0.8);
+}
+.post_body p:not(:last-child)
+{
+	margin-bottom: 30px;
+}
+
+/*********************************
+7. Footer
+*********************************/
+
+.footer
+{
+	width: 100%;
+	background: #1f1f1f;
+}
+.footer_content
+{
+	padding-top: 50px;
+	text-align: center;
+	padding-bottom: 17px;
+}
+.footer_logo a
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px;
+	font-weight: 700;
+	color: #FFFFFF;
+	letter-spacing: 0.075em;
+	text-transform: uppercase;
+	line-height: 0.75;
+}
+.footer_social
+{
+	margin-top: 34px;
+}
+.footer_social ul li
+{
+	display: inline-block;
+}
+.footer_social ul li:not(:last-child)
+{
+	margin-right: 21px;
+}
+.footer_social ul li i
+{
+	color: #8f8f8f;
+}
+.footer_social_facebook:hover i
+{
+	color: #3b5999;
+}
+.footer_social_twitter:hover i
+{
+	color: #55acee;
+}
+.footer_social_pinterest:hover i
+{
+	color: #bd081c;
+}
+.footer_social_vimeo:hover i
+{
+	color: #1ab7ea;
+}
+.footer_social_instagram:hover i
+{
+	color: #c26d7a;
+}
+.footer_social_google:hover i
+{
+	color: #dd4b39;
+}
+.copyright
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 12px;
+	font-weight: 500;
+	color: rgba(255,255,255,0.1);
+	margin-top: 40px;
+}
+.subscribe
+{
+	width: 100%;
+	height: 100%;
+}
+.subscribe_background
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 375px;
+	height: 100%;
+	background: #111111;
+}
+.subscribe_content
+{
+	width: 100%;
+	padding-left: 30px;
+	padding-right: 15px;
+	padding-top: 45px;
+}
+.subscribe_title
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+	color: #FFFFFF;
+	margin-bottom: 32px;
+}
+.subscribe_content form
+{
+	position: relative;
+	width: 100%;
+}
+.sub_input
+{
+	width: 100%;
+	background: transparent;
+	border: none;
+	outline: none;
+	border-bottom: solid 1px #888888;
+	padding-bottom: 9px;
+	color: #FFFFFF;
+}
+.sub_input::-webkit-input-placeholder
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 500 !important;
+	color: rgba(255,255,255,0.5) !important;
+}
+.sub_input:-moz-placeholder
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 500 !important;
+	color: rgba(255,255,255,0.5) !important;
+}
+.sub_input::-moz-placeholder
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 500 !important;
+	color: rgba(255,255,255,0.5) !important;
+} 
+.sub_input:-ms-input-placeholder
+{ 
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 500 !important;
+	color: rgba(255,255,255,0.5) !important;
+}
+.sub_input::input-placeholder
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px !important;
+	font-weight: 500 !important;
+	color: rgba(255,255,255,0.5) !important;
+}
+.sub_button
+{
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	right: 0;
+	background: transparent;
+	border: none;
+	outline: none;
+}
+.sub_button svg polygon
+{
+	fill: rgba(255,255,255,0.5);
+}
+.subscribe_content form:hover .sub_button svg polygon,
+.subscribe_content form:focus .sub_button svg polygon
+{
+	fill: #37d27f;
+}
+.subscribe_content form:hover .sub_input,
+.sub_input:focus
+{
+	border-bottom: solid 1px rgba(255,255,255,1);
+}

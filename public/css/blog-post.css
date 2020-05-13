@@ -1,0 +1,30 @@
+/*!
+ * Start Bootstrap - Blog Post (https://startbootstrap.com/template-overviews/blog-post)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-post/blob/master/LICENSE)
+ */
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+ body {
+      background: #e5e5e5;
+      width: 100%;
+      height: 100vh;
+      font-family:Poppins;
+    }
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+    .container {
+      width: 100%;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
