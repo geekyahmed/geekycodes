@@ -7,12 +7,9 @@ module.exports = {
 
     index: (req, res) => {
         res.render('admin/index');
-
     },
 
-
     /* ADMIN POSTS ENDPOINTS */
-
 
     getPosts: (req, res) => {
         Post.find()
@@ -25,17 +22,12 @@ module.exports = {
 
     getCreatePostPage: (req, res) => {
         Category.find().then(cats => {
-
             res.render('admin/posts/create', { categories: cats });
         });
-
-
     },
 
     submitCreatePostPage: (req, res) => {
-
         const commentsAllowed = !!req.body.allowComments;
-
         // Check for any input file
         let filename = '';
 
@@ -185,4 +177,3 @@ module.exports = {
 
 
 };
-
