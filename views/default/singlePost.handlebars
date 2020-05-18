@@ -1,145 +1,231 @@
-<div id="post-header" class="page-header">
-    <div class="background-img" style="background-image: url({{post.file}});"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10">
-                <div class="post-meta">
-                    <a class="post-category cat-2" href="category.html">{{post.tag}}</a>
-                    <span class="post-date">{{post.creationDate}}</span>
-                </div>
-                <h1>{{post.title}}</h1>
+<link rel="stylesheet" href="css/styles.css" />
+    <div class="wrap">    <section class="site-section py-lg">
+      <div class="container">
+
+        <div class="row blog-entries element-animate">
+
+          <div class="col-md-12 col-lg-8 main-content">
+            <img src="{{post.file}}" alt="Image" class="img-fluid mb-5">
+             <div class="post-meta">
+                        <span class="author mr-2"><img src="images/author.jpg" alt="Colorlib" class="mr-2"> Bankole Ahmed</span>&bullet;
+                        <span class="mr-2">{{post.creationDate}}</span> &bullet;
+                        <span class="ml-2"><span class="fa fa-comments"></span> {{comments.length}}</span>
+                      </div>
+            <h1 class="mb-4">{{post.title}}</h1>
+            <a class="category mb-5" href="#">{{post.tag}}</a>
+
+            <div class="post-content-body">
+            <p>{{post.description}}</p>
+              </div>
+
+
+            <div class="pt-5">
+              <p>Categories:  <a href="#">{{category}}</a>, <a href="#">Travel</a>  Tags: <a href="#">#{{tag}}</a></p>
             </div>
-        </div>
-    </div>
-</div>
-<!-- /Page Header -->
-</header>
-<!-- /Header -->
 
-<!-- section -->
-<div class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <!-- Post content -->
-            <div class="col-md-8">
-                <div class="section-row sticky-container">
-                    <div class="main-post">
-                        <h3>{{post.title}}</h3>
-                        <p>{{post.description}}</p>
-                    </div>
-                    <div class="post-shares sticky-shares">
-                        <a href="#" class="share-facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="share-twitter"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="share-google-plus"><i class="fa fa-google-plus"></i></a>
-                        <a href="#" class="share-pinterest"><i class="fa fa-pinterest"></i></a>
-                        <a href="#" class="share-linkedin"><i class="fa fa-linkedin"></i></a>
-                        <a href="#"><i class="fa fa-envelope"></i></a>
-                    </div>
+
+            <div class="pt-5">
+              <h3 class="mb-5">{{comments.length}} Comments</h3>
+              <ul class="comment-list">
+                {{#each posts.comment}}
+                <li class="comment">
+                  <div class="vcard">
+                    <img src="images/avatarc.png" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>{{fullName}}</h3>
+                    <div class="meta">January 9, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply rounded">Reply</a></p>
+                  </div>
+                </li>
+                {{/each}}
+              </ul>
+              <!-- END comment-list -->
+
+              <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">Leave a comment</h3>
+                <form action="#" class="p-5 bg-light">
+                  <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" class="form-control" id="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" class="form-control" id="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="url" class="form-control" id="website">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Post Comment" class="btn btn-primary">
+                  </div>
+
+                </form>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- END main-content -->
+
+          <div class="col-md-12 col-lg-4 sidebar">
+            <div class="sidebar-box search-form-wrap">
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <span class="icon fa fa-search"></span>
+                  <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
                 </div>
-
-                <!-- ad -->
-                <div class="section-row text-center">
-                    <a href="#" style="display: inline-block;margin: auto;">
-                        <img class="img-responsive" src="./img/ad-2.jpg" alt="">
+              </form>
+            </div>
+            <!-- END sidebar-box -->
+            <div class="sidebar-box">
+              <div class="bio text-center">
+                <img src="images/person_2.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="bio-body">
+                  <h2>Craig David</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias minus.</p>
+                  <p><a href="#" class="btn btn-primary btn-sm rounded">Read my bio</a></p>
+                  <p class="social">
+                    <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- END sidebar-box -->
+            <div class="sidebar-box">
+              <h3 class="heading">Popular Posts</h3>
+              <div class="post-entry-sidebar">
+                <ul>
+                  <li>
+                    <a href="">
+                      <img src="images/img_1.jpg" alt="Image placeholder" class="mr-4">
+                      <div class="text">
+                        <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
+                        <div class="post-meta">
+                          <span class="mr-2">March 15, 2018 </span>
+                        </div>
+                      </div>
                     </a>
-                </div>
-                <!-- ad -->
-
-                <!-- author -->
-                <div class="section-row">
-                    <div class="post-author">
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="/images/avatarc.png" alt="">
-                            </div>
-                            <div class="media-body">
-                                <div class="media-heading">
-                                    {{#if user}}
-                                    <h3>{{user.lastName}} {{user.firstName}}</h3>
-                                    <p>{{user.bio}}.</p>
-
-                                    {{else}}
-                                    <h3>Anonymous - Login To See Name</h3>
-                                    {{/if}}
-                                </div>
-                                <ul class="author-social">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
+                  </li>
+                  <li>
+                    <a href="">
+                      <img src="images/img_1.jpg" alt="Image placeholder" class="mr-4">
+                      <div class="text">
+                        <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
+                        <div class="post-meta">
+                          <span class="mr-2">March 15, 2018 </span>
                         </div>
-                    </div>
-                </div>
-                <!-- /author -->
-                <div class="section-row">
-                    <div class="section-title">
-                        <h2>Leave a reply</h2>
-                        <p>your email address will not be published. required fields are marked *</p>
-                    </div>
-                    <form class="post-reply" action="/post/{{post._id}}" method="POST">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <span>Full Name *</span>
-                                    <input class="input" type="text" name="full_name">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <span>Email *</span>
-                                    <input class="input" type="email" name="email">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <textarea class="input" name="comment_body" placeholder="Message"></textarea>
-                                </div>
-                                <input type="hidden" name="id" value="{{post._id}}">
-
-                                <button type="submit" class="primary-button">Submit</button>
-                            </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <img src="images/img_1.jpg" alt="Image placeholder" class="mr-4">
+                      <div class="text">
+                        <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
+                        <div class="post-meta">
+                          <span class="mr-2">March 15, 2018 </span>
                         </div>
-                    </form>
-                </div>
-                <!-- comments -->
-                <div class="section-row">
-                    <div class="section-title">
-                        <h2>{{comments.length}} Comments</h2>
-                    </div>
-
-                    <div class="post-comments">
-                        <!-- comment -->
-                        {{#each post.comments}}
-
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="/images/avatarc.png" alt="">
-                            </div>
-                            <div class="media-body">
-                                <div class="media-heading">
-                                    <h4>{{full_name}}</h4>
-                                </div>
-                                <p>{{body}}</p>
-                                <div>
-                                </div>
-                            </div>
-                        </div>
-                        {{/each}}
-                    </div>
-                </div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
+            <!-- END sidebar-box -->
+
+            <div class="sidebar-box">
+              <h3 class="heading">Categories</h3>
+              <ul class="categories">
+                <li><a href="#">Food <span>(12)</span></a></li>
+                <li><a href="#">Travel <span>(22)</span></a></li>
+                <li><a href="#">Lifestyle <span>(37)</span></a></li>
+                <li><a href="#">Business <span>(42)</span></a></li>
+                <li><a href="#">Adventure <span>(14)</span></a></li>
+              </ul>
+            </div>
+            <!-- END sidebar-box -->
+
+            <div class="sidebar-box">
+              <h3 class="heading">Tags</h3>
+              <ul class="tags">
+                <li><a href="#">Travel</a></li>
+                <li><a href="#">Adventure</a></li>
+                <li><a href="#">Food</a></li>
+                <li><a href="#">Lifestyle</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Freelancing</a></li>
+                <li><a href="#">Travel</a></li>
+                <li><a href="#">Adventure</a></li>
+                <li><a href="#">Food</a></li>
+                <li><a href="#">Lifestyle</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Freelancing</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- END sidebar -->
+
         </div>
-    </div>
-</div>
-<!-- /comments -->
-</div>
-<!-- /aside -->
-</div>
-<!-- /row -->
-</div>
-<!-- /container -->
-<!-- /section -->
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="mb-3 ">Related Post</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <a href="#" class="a-block sm d-flex align-items-center height-md" style="background-image: url('images/img_2.jpg'); ">
+              <div class="text">
+                <div class="post-meta">
+                  <span class="category">Lifestyle</span>
+                  <span class="mr-2">March 15, 2018 </span> &bullet;
+                  <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                </div>
+                <h3>There’s a Cool New Way for Men to Wear Socks and Sandals</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <a href="#" class="a-block sm d-flex align-items-center height-md" style="background-image: url('images/img_3.jpg'); ">
+              <div class="text">
+                <div class="post-meta">
+                  <span class="category">Travel</span>
+                  <span class="mr-2">March 15, 2018 </span> &bullet;
+                  <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                </div>
+                <h3>There’s a Cool New Way for Men to Wear Socks and Sandals</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <a href="#" class="a-block sm d-flex align-items-center height-md" style="background-image: url('images/img_4.jpg'); ">
+              <div class="text">
+                <div class="post-meta">
+                  <span class="category">Food</span>
+                  <span class="mr-2">March 15, 2018 </span> &bullet;
+                  <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                </div>
+                <h3>There’s a Cool New Way for Men to Wear Socks and Sandals</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
