@@ -19,7 +19,7 @@ const app = express();
 
 
 // Configure Mongoose to Connect to MongoDB
-mongoose.connect(mongoDbUrl_dev, { useNewUrlParser: true })
+mongoose.connect(mongoDbUrl, { useNewUrlParser: true })
     .then(response => {
         console.log("MongoDB Connected Successfully.");
     }).catch(err => {
