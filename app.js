@@ -24,7 +24,7 @@ seo.setConfig({
 
 // Set the default tags
 seo.setDefaults({
-    html: "<a href='https://twitter.com/geekyahmed'>Follow me on twitter</a>" // Special property to insert html in the body (interesting to insert links)
+    html: "<a href='https://twitter.com/geekyahmed'>Follow me on twitter</a>" ,// Special property to insert html in the body (interesting to insert links)
     title: "Geeky ahmed", // Page title
     // All the other properties will be inserted as a meta property
     description: {
