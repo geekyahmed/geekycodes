@@ -4,7 +4,8 @@
   "description": "A  Nodejs Blog Application For Developers",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "dev": "node app.js"
   },
   "author": "Bankole Ahmed",
   "license": "ISC",

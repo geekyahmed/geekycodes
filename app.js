@@ -63,23 +63,6 @@ app.set('view engine', 'handlebars');
 /* Method Override Middleware*/
 app.use(methodOverride('newMethod'));
 
-var counter = 0
-
-app.get("/counter", (req, res) => {
-    counter++;
-    storage.init().then(() => storage.getItem("counter")).then((value) => {
-        if (value > 0) {
-            counter = value;
-        } else {
-            counter = 0;
-        }
-      });
-
-    // Saves counter into the store and send response AFTER the store has been saved
-    storage.setItem("counter", counter).then(() => {
-        res.json(counter);
-    });
-});
 
     /* Routes */
     const defaultRoutes = require('./routes/defaultRoutes');
