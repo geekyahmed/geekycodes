@@ -11,10 +11,7 @@ module.exports = {
 
         const posts = await Post.find().exec();
         const categories = await Category.find();
-
         // destructure page and limit and set default values
-
-
         const { page = 1, limit = 6 } = req.query;
 
         try {
@@ -38,16 +35,6 @@ module.exports = {
             console.error(err.message);
         }
     },
-
-    erorrGet: (req, res, next) => {
-        if (res.status(404)) {
-            res.render('default/404', { message: req.flash('error') })
-        }
-        else {
-            next();
-        }
-    },
-
     /* LOGIN ROUTES */
     loginGet: (req, res) => {
         res.render('default/login', { message: req.flash('error') });
@@ -112,11 +99,12 @@ module.exports = {
         }
     },
 
-    getSinglePost: (req, res) => {
+    getSinglePost: async (req, res) => {
         const id = req.params.id;
-
+        const posts = await Post.find();
+        const categories = await Category.find();
         Post.findById(id)
-            .populate({ path: 'comments', populate: { path: 'user', model: 'user' } })
+            .populate({ path: 'comments',posts:posts, categories:categories, populate: { path: 'user', model: 'user' } })
             .then(post => {
                 if (!post) {
                     res.status(404).render('default/404');
