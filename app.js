@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /*  Flash and Session*/
 app.use(session({
-    secret: 'anysecret',
+    secret: 'johnnywick',
     saveUninitialized: true,
     resave: true
 }));
