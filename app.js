@@ -6,7 +6,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const hbs = require('express-handlebars');
-const { mongoDbUrl, PORT } = require('./config/configuration');
+const { mongoDbUrl,mongoDbUrl_dev, PORT } = require('./config/configuration');
 const flash = require('connect-flash');
 const session = require('express-session');
 const methodOverride = require('method-override');
@@ -19,7 +19,7 @@ const app = express();
 
 
 // Configure Mongoose to Connect to MongoDB
-mongoose.connect(mongoDbUrl, { useNewUrlParser: true })
+mongoose.connect(mongoDbUrl_dev, { useNewUrlParser: true })
     .then(response => {
         console.log("MongoDB Connected Successfully.");
     }).catch(err => {
