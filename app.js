@@ -15,7 +15,37 @@ const fileUpload = require('express-fileupload');
 const passport = require('passport');
 
 const app = express();
+const seo = require('express-seo')(app);
 
+// For internatanalization, set the supported languages
+seo.setConfig({
+    langs: ["en"]
+});
+
+// Set the default tags
+seo.setDefaults({
+    html: "<a href='https://twitter.com/geekyahmed'>Follow me on twitter</a>" // Special property to insert html in the body (interesting to insert links)
+    title: "Geeky ahmed", // Page title
+    // All the other properties will be inserted as a meta property
+    description: {
+        en: "The best place to learn web development and modern web technologies to build modern web applications",
+    },
+    image: "https://avatars1.githubusercontent.com/u/42346847?s=460&u=f154ee34c4a166dfee1d017a930f065df0112b41&v=4"
+});
+
+// Create an seo route
+seo.add("/contact", function(req, opts, next) {
+    /*
+    req: Express request
+    opts: Object {
+        service: String ("facebook" || "twitter" || "search-engine")
+        lang: String (Detected language)
+    }
+    */
+    next({
+        description: "Amazing contact page"
+    });
+});
 
 
 // Configure Mongoose to Connect to MongoDB
