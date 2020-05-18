@@ -15,7 +15,7 @@ module.exports = {
         // destructure page and limit and set default values
 
 
-        const { page = 1, limit = 5 } = req.query;
+        const { page = 1, limit = 6 } = req.query;
 
         try {
             // execute query with page and limit values

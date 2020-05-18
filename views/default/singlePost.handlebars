@@ -55,12 +55,11 @@
                   <div class="form-group">
                     <label for="message">Message</label>
                     <textarea name="" id="message" name="comment_body" cols="30" rows="10" class="form-control"></textarea>
+                    <input type="hidden" name="id" value="{{post._id}}">
                   </div>
                   <div class="form-group">
-                    <input type="submit" value="Post Comment" class="btn btn-primary">
+                    <button type="submit"  class="btn btn-primary">Submit Comment</button>
                   </div>
-                  <input type="hidden" name="id" value="{{post._id}}">
-
                 </form>
               </div>
             </div>
@@ -96,29 +95,6 @@
                         </div>
                       </div>
                     </div>
-
-
-                    <div class="sidebar-box">
-                      <h3 class="heading">Categories</h3>
-                      <ul class="categories">
-                      {{#each categories}}
-                        <li><a href="#">{{title}}</a></li>
-                        {{/each}}
-                      </ul>
-                    </div>
-                    <!-- END sidebar-box -->
-
-                    <div class="sidebar-box">
-                      <h3 class="heading">Tags</h3>
-                      <ul class="tags">
-                        {{#each posts}}
-                        <li><a href="#">{{tag}}</a></li>
-                        {{/each}}
-                      </ul>
-                    </div>
-                  </div>
-          <!-- END sidebar -->
-
         </div>
       </div>
     </section>
