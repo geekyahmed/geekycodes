@@ -1,67 +1,122 @@
-<div class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="section-title">
-                            <h2 class="text-center">New Articles</h2>
-                        </div>
+<div class="wrap">
+      <section class="site-section pt-5 pb-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="owl-carousel owl-theme home-slider">
+                {{#each posts}}
+                <div>
+                  <a href="blog-single.html" class="a-block d-flex align-items-center height-lg" style="background-image:  url({{file}}); ">
+                    <div class="text half-to-full">
+                      <span class="category mb-5">{{tag}}</span>
+                      <div class="post-meta">
+                        <span class="author mr-2"> Bankole Ahmed</span>&bullet;
+                        <span class="mr-2">{{creationDate}}</span> &bullet;
+                        <span class="ml-2"><span class="fa fa-comments"></span> {{comments.length}}</span>
+                      </div>
+                      <h3>{{title}}</h3>
+                      <p>{{description}}</p>
                     </div>
-                    <div class="col-md-12">
-                        {{#each posts}}
-                        <div class="post post-row">
-                            <a class="post-img" href="/post/{{id}}"><img width="200px" height="200px" src={{file}}
-                                    alt=""></a>
-                            <div class="post-body mb-5">
-                                <div class="post-meta">
-                                    <a class="post-category cat-2" href="">{{tag}}</a>
-                                    <span class="post-date"><i class="fa fa-clock"></i>{{creationDate}}</span>
-                                </div>
-                                <h1 class="post-title mt-5"><a href="/post/{{id}}">{{title}}</a></h1>
-
-                            </div>
-                        </div>
-                        {{/each}}
-                    </div>
-                    <!-- /post -->
-                    <div class="col-md-12">
-                        <div class="section-row">
-                            <button class="primary-button center-block">Load More</button>
-                        </div>
-                    </div>
+                  </a>
                 </div>
+                {{/each}}
+              </div>
             </div>
-
-            <div class="col-md-4">
-6-                <div class="aside-widget text-center">
-                    <a href="#" style="display: inline-block;margin: auto;">
-                        <img class="img-responsive" src="./img/ad-1.jpg" alt="">
-                    </a>
-                </div>
-                <!-- /ad -->
-
-                <!-- catagories -->
-                <div class="aside-widget">
-                    <div class="section-title">
-                        <h2>Categories</h2>
-                    </div>
-                    <div class="category-widget">
-                        <ul>
-                            {{#each categories}}
-                            <li><a href="#" class="cat-1" style="text-transform: capitalize;">{{title}}<span></span></a>
-                            </li>
-                            {{/each}}
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- /tags -->
-            </div>
+          </div>
         </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
-</div>
+      </section>
+      <!-- END section -->
+
+      <section class="site-section py-sm">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h2 class="mb-4">Latest Posts</h2>
+            </div>
+          </div>
+          <div class="row blog-entries">
+            <div class="col-md-12 col-lg-8 main-content">
+              <div class="row">
+                {{#each posts}}
+                <div class="col-md-6">
+                  <a href="/post/{{id}}" class="blog-entry element-animate" data-animate-effect="fadeIn">
+                    <img src="{{file}}" alt="Image placeholder">
+                    <div class="blog-content-body">
+                      <div class="post-meta">
+                        <span class="author mr-2"><img src="/images/author.jpg" width=100px; height=40px; > Bankole Ahmed</span>&bullet;
+                        <span class="mr-2">{{creationDate}} </span> &bullet;
+                        <span class="ml-2"><span class="fa fa-comments"></span> {{comments.length}}</span>
+                      </div>
+                      <h2>{{title}}</h2>
+                    </div>
+                  </a>
+                </div>
+                {{/each}}
+              </div>
+
+              <div class="row mt-5">
+                <div class="col-md-12 text-center">
+                  <nav aria-label="Page navigation" class="text-center">
+                    <ul class="pagination">
+                      <li class="page-item  active"><a class="page-link" href="#">&lt;</a></li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+
+            <!-- END main-content -->
+
+            <div class="col-md-12 col-lg-4 sidebar">
+              <div class="sidebar-box search-form-wrap">
+                <form action="#" class="search-form">
+                  <div class="form-group">
+                    <span class="icon fa fa-search"></span>
+                    <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
+                  </div>
+                </form>
+              </div>
+              <!-- END sidebar-box -->
+              <div class="sidebar-box">
+                <div class="bio text-center">
+                  <img src="images/author.jpg" width="200px" alt="Image Placeholder" class="img-fluid">
+                  <div class="bio-body">
+                    <h2>Bankole Ahmed</h2>
+                    <p>I am a fullstack  developer that loves builing awesome stuffs with JavaScript especially node.js and vue.js and my passion is giving back to the sociey by contributing to open-source projects.</p>
+                    <p><a href="/about" class="btn btn-primary btn-sm rounded">Read my bio</a></p>
+                    <p class="social">
+                      <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                      <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                      <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+                      <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- END sidebar-box -->
+
+              <div class="sidebar-box">
+                <h3 class="heading">Categories</h3>
+                <ul class="categories">
+                  {{#each categories}}
+                  <li><a href="#">{{title}}</a></li>
+                  {{/each}}
+                </ul>
+              </div>
+              <!-- END sidebar-box -->
+
+              <div class="sidebar-box">
+                <h3 class="heading">Tags</h3>
+                <ul class="tags">
+                  {{#each posts}}
+                  <li><a href="#">{{tag}}</a></li>
+{{/each}}
+                </ul>
+              </div>
+            </div>
+            <!-- END sidebar -->
+
+          </div>
+        </div>
+      </section>

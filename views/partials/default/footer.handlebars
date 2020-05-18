@@ -1,182 +1,29 @@
-<!-- Footer -->
-<footer id="footer">
-    <!-- container -->
+<footer class="site-footer">
     <div class="container">
-        <!-- row -->
-        <div class="row">
-            <div class="col-md-5">
-                <div class="footer-widget">
-                    <div class="footer-logo">
-                        <a href="index.html" class="logo"><img src="./img/logo.png" alt=""></a>
-                    </div>
-                    <ul class="footer-nav">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Advertisement</a></li>
-                    </ul>
-                    <div class="footer-copyright">
-                        <span>&copy;
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This
-                            template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-                                href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="footer-widget">
-                            <h3 class="footer-title">About Us</h3>
-                            <ul class="footer-links">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="#">Join Us</a></li>
-                                <li><a href="contact.html">Contacts</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="footer-widget">
-                            <h3 class="footer-title">Catagories</h3>
-                            <ul class="footer-links">
-                                <li><a href="category.html">Web Design</a></li>
-                                <li><a href="category.html">JavaScript</a></li>
-                                <li><a href="category.html">Css</a></li>
-                                <li><a href="category.html">Jquery</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="footer-widget">
-                    <h3 class="footer-title">Join our Newsletter</h3>
-                    <div class="footer-newsletter">
-                        <form>
-                            <input class="input" type="email" name="newsletter" placeholder="Enter your email">
-                            <button class="newsletter-btn"><i class="fa fa-paper-plane"></i></button>
-                        </form>
-                    </div>
-                    <ul class="footer-social">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="small">
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script>  | Built With <i class="fa fa-heart text-danger" aria-hidden="true"></i> and <i class="fa fa-coffee text-danger" aria-hidden="true"></i> by <a href="https://bankoleahmed.netlify.com" target="_blank" >Bankole Ahmed</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
         </div>
-        <!-- /row -->
+      </div>
     </div>
-    <!-- /container -->
-</footer>
+  </footer>
+</div>
+<div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 
-<!-- Bootstrap core JavaScript -->
-<script src="/vendor/jquery/jquery.min.js"></script>
-<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery-migrate-3.0.0.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
 
-<script>
-    $(document).ready(function () {
-        setTimeout(function () {
-            $('.alert').slideUp(1000);
-        }, 1000);
-    });
-    (function ($) {
-        "use strict"
 
-        // Fixed Nav
-        var lastScrollTop = 0;
-        $(window).on('scroll', function () {
-            var wScroll = $(this).scrollTop();
-            if (wScroll > $('#nav').height()) {
-                if (wScroll < lastScrollTop) {
-                    $('#nav-fixed').removeClass('slide-up').addClass('slide-down');
-                } else {
-                    $('#nav-fixed').removeClass('slide-down').addClass('slide-up');
-                }
-            }
-            lastScrollTop = wScroll
-        });
-
-        // Search Nav
-        $('.search-btn').on('click', function () {
-            $('.search-form').addClass('active');
-        });
-
-        $('.search-close').on('click', function () {
-            $('.search-form').removeClass('active');
-        });
-
-        // Aside Nav
-        $(document).click(function (event) {
-            if (!$(event.target).closest($('#nav-aside')).length) {
-                if ($('#nav-aside').hasClass('active')) {
-                    $('#nav-aside').removeClass('active');
-                    $('#nav').removeClass('shadow-active');
-                } else {
-                    if ($(event.target).closest('.aside-btn').length) {
-                        $('#nav-aside').addClass('active');
-                        $('#nav').addClass('shadow-active');
-                    }
-                }
-            }
-        });
-
-        $('.nav-aside-close').on('click', function () {
-            $('#nav-aside').removeClass('active');
-            $('#nav').removeClass('shadow-active');
-        });
-
-        // Sticky Shares
-        var $shares = $('.sticky-container .sticky-shares'),
-            $sharesHeight = $shares.height(),
-            $sharesTop,
-            $sharesCon = $('.sticky-container'),
-            $sharesConTop,
-            $sharesConleft,
-            $sharesConHeight,
-            $sharesConBottom,
-            $offsetTop = 80;
-
-        function setStickyPos() {
-            if ($shares.length > 0) {
-                $sharesTop = $shares.offset().top
-                $sharesConTop = $sharesCon.offset().top;
-                $sharesConleft = $sharesCon.offset().left;
-                $sharesConHeight = $sharesCon.height();
-                $sharesConBottom = $sharesConHeight + $sharesConTop;
-            }
-        }
-
-        function stickyShares(wScroll) {
-            if ($shares.length > 0) {
-                if ($sharesConBottom - $sharesHeight - $offsetTop < wScroll) {
-                    $shares.css({ position: 'absolute', top: $sharesConHeight - $sharesHeight, left: 0 });
-                } else if ($sharesTop < wScroll + $offsetTop) {
-                    $shares.css({ position: 'fixed', top: $offsetTop, left: $sharesConleft });
-                } else {
-                    $shares.css({ position: 'absolute', top: 0, left: 0 });
-                }
-            }
-        }
-
-        $(window).on('scroll', function () {
-            stickyShares($(this).scrollTop());
-        });
-
-        $(window).resize(function () {
-            setStickyPos();
-            stickyShares($(this).scrollTop());
-        });
-
-        setStickyPos();
-
-    })(jQuery);
-</script>
+<script src="js/main.js"></script>
 </body>
 
 </html>

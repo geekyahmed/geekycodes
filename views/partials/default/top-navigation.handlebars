@@ -1,35 +1,67 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<header role="banner">
+  <div class="top-bar">
     <div class="container">
-        <a class="navbar-brand" href="/">Geeky Codes</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-
-                {{#if user}}
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin">Admin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout"><i class="fa fa-fw fa-sign-out"></i>Logout</a>
-                </li>
-
-                {{else}}
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">Register</a>
-                </li>
-
-                {{/if}}
-
-            </ul>
+      <div class="row">
+        <div class="col-9 social">
+          <a href="#"><span class="fa fa-twitter"></span></a>
+          <a href="#"><span class="fa fa-facebook"></span></a>
+          <a href="#"><span class="fa fa-instagram"></span></a>
+          <a href="#"><span class="fa fa-youtube-play"></span></a>
         </div>
+        <div class="col-3 search-top">
+          <!-- <a href="#"><span class="fa fa-search"></span></a> -->
+          <form action="#" class="search-top-form">
+            <span class="icon fa fa-search"></span>
+            <input type="text" id="s" placeholder="Type keyword to search...">
+          </form>
+        </div>
+      </div>
     </div>
-</nav>
+  </div>
+
+  <div class="container logo-wrap">
+    <div class="row pt-5">
+      <div class="col-12 text-center">
+        <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
+        <h1 class="site-logo"><a href="index.html">Geeky Ahmed</a></h1>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-md  navbar-light bg-light">
+    <div class="container">
+
+
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav mx-auto">
+          {{#if user}}
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/admin">Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Log Out</a>
+          </li>
+          {{else}}
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://bankoleahmed.netlify.com" target="_blank">Portfolio</a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+        {{/if}}
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+</header>

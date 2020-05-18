@@ -15,10 +15,36 @@ module.exports = {
         const articles2 = await Post.find().exec();
         const articles3 = await Post.find().exec();
 
-        const randomPost = articles[Math.floor(Math.random() * articles.length)];
-        const randomPost2 = articles2[Math.floor(Math.random() * 6)];
-        const randomPost3 = articles3[Math.floor(Math.random() * 3)];
-        res.render('default/index', { posts: posts, categories: categories, article: randomPost, article2: randomPost2, article3: randomPost3 });
+        // destructure page and limit and set default values
+
+
+        const { page = 1, limit = 2 } = req.query;
+
+        try {
+            // execute query with page and limit values
+            const posts = await Post.find()
+                .limit(limit * 1)
+                .skip((page - 1) * limit)
+                .exec();
+
+            // get total documents in the Posts collection
+            const count = await Post.countDocuments();
+
+            // return response with posts, total pages, and current page
+            res.render('default/index', {
+                posts:posts,
+                categories: categories,
+                totalPages: Math.ceil(count / limit),
+                currentPage: page
+            })
+        } catch (err) {
+            console.error(err.message);
+        }
+
+        // const randomPost = articles[Math.floor(Math.random() * articles.length)];
+        // const randomPost2 = articles2[Math.floor(Math.random() * 6)];
+        // const randomPost3 = articles3[Math.floor(Math.random() * 3)];
+        // res.render('default/index', { posts: posts, categories: categories, article: randomPost, article2: randomPost2, article3: randomPost3 });
     },
 
     erorrGet: (req, res, next) => {
@@ -139,4 +165,3 @@ module.exports = {
     }
 
 };
-
