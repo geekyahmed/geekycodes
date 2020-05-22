@@ -26,7 +26,7 @@ module.exports = {
 
             // return response with posts, total pages, and current page
             res.render('default/index', {
-                posts:posts,
+                posts: posts,
                 categories: categories,
                 totalPages: Math.ceil(count / limit),
                 currentPage: page
@@ -104,7 +104,7 @@ module.exports = {
         const posts = await Post.find();
         const categories = await Category.find();
         Post.findById(id)
-            .populate({ path: 'comments',posts:posts, categories:categories, populate: { path: 'user', model: 'user' } })
+            .populate({ path: 'comments', posts: posts, categories: categories, populate: { path: 'user', model: 'user' } })
             .then(post => {
                 if (!post) {
                     res.status(404).render('default/404');

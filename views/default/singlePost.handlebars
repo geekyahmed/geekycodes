@@ -1,97 +1,99 @@
-    <div class="wrap">
-          <section class="site-section py-lg">
-      <div class="container">
+<div class="wrap">
+  <section class="site-section py-lg">
+    <div class="container">
 
-        <div class="row blog-entries element-animate">
+      <div class="row blog-entries element-animate">
 
-          <div class="col-md-12 col-lg-8 main-content">
-            <img src="{{post.file}}" alt="Image" class="img-fluid mb-5">
-             <div class="post-meta">
-                        <span class="author mr-2"><img src="images/author.jpg" alt="Colorlib" class="mr-2"> Bankole Ahmed</span>&bullet;
-                        <span class="mr-2">{{post.creationDate}}</span> &bullet;
-                        <span class="ml-2"><span class="fa fa-comments"></span> {{comments.length}}</span>
-                      </div>
-            <h1 class="mb-4">{{post.title}}</h1>
-            <a class="category mb-5" href="#">{{post.tag}}</a>
+        <div class="col-md-12 col-lg-8 main-content">
+          <img src="{{post.file}}" alt="Image" class="img-fluid mb-5">
+          <div class="post-meta">
+            <span class="author mr-2"><img src="images/author.jpg" alt="Colorlib" class="mr-2"> Bankole
+              Ahmed</span>&bullet;
+            <span class="mr-2">{{post.creationDate}}</span> &bullet;
+            <span class="ml-2"><span class="fa fa-comments"></span> {{comments.length}}</span>
+          </div>
+          <h1 class="mb-4">{{post.title}}</h1>
+          <a class="category mb-5" href="#">{{post.tag}}</a>
 
-            <div class="post-content-body">
+          <div class="post-content-body">
             <p>{{post.description}}</p>
-              </div>
+          </div>
 
 
-            <div class="pt-5">
-              <p>Tags: <a href="#">{{post.tag}}</a></p>
+          <div class="pt-5">
+            <p>Tag: <a href="#">{{post.tag}}</a></p>
+          </div>
+
+
+          <div class="pt-5">
+            <h3 class="mb-5">{{comments.length}} Comments</h3>
+            <ul class="comment-list">
+              {{#each post.comments}}
+              <li class="comment">
+                <div class="vcard">
+                  <img src="images/avatarc.png" alt="Image placeholder">
+                </div>
+                <div class="comment-body">
+                  <h3>{{full_name}}</h3>
+                  <p>{{body}}</p>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+            <!-- END comment-list -->
+
+            <div class="comment-form-wrap pt-5">
+              <h3 class="mb-5">Leave a comment</h3>
+              <form action="/post/{{post._id}}" method="post" class="p-5 bg-light">
+                <div class="form-group">
+                  <label for="name">Name *</label>
+                  <input type="text" class="form-control" name="full_name">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email *</label>
+                  <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" rows="3" name="comment_body"></textarea>
+                  <input type="hidden" name="id" value="{{post._id}}">
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary">Submit Comment</button>
+                </div>
+              </form>
             </div>
+          </div>
+        </div>
 
-
-            <div class="pt-5">
-              <h3 class="mb-5">{{comments.length}} Comments</h3>
-              <ul class="comment-list">
-                {{#each post.comments}}
-                <li class="comment">
-                  <div class="vcard">
-                    <img src="images/avatarc.png" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>{{full_name}}</h3>
-                    <p>{{body}}</p>
-                  </div>
-                </li>
-                {{/each}}
-              </ul>
-              <!-- END comment-list -->
-
-               <div class="comment-form-wrap pt-5">
-                <h3 class="mb-5">Leave a comment</h3>
-                <form action="/post/{{post._id}}" method="post" class="p-5 bg-light">
-                  <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" class="form-control"  name="full_name">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" class="form-control" id="email" name="email">
-                  </div>
-                  <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea class="form-control" rows="3" name="comment_body"></textarea>
-                    <input type="hidden" name="id" value="{{post._id}}">
-                  </div>
-                  <div class="form-group">
-                    <button type="submit"  class="btn btn-primary">Submit Comment</button>
-                  </div>
-                </form>
+        <!-- END main-content -->
+        <div class="col-md-12 col-lg-4 sidebar">
+          <div class="sidebar-box search-form-wrap">
+            <form action="#" class="search-form">
+              <div class="form-group">
+                <span class="icon fa fa-search"></span>
+                <input type="search" class="form-control" id="s" placeholder="Type a keyword and hit enter">
+              </div>
+            </form>
+          </div>
+          <!-- END sidebar-box -->
+          <div class="sidebar-box">
+            <div class="bio text-center">
+              <img src="images/author.jpg" alt="Image Placeholder" class="img-fluid">
+              <div class="bio-body">
+                <h2>Bankole Ahmed</h2>
+                <p>I am a developer that loves building awesome web applications with javascript and wrting tech
+                  articles for fun.</p>
+                <p><a href="/about" class="btn btn-primary btn-sm rounded">Read my bio</a></p>
+                <p class="social">
+                  <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                  <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                  <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+                  <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
+                </p>
               </div>
             </div>
           </div>
-
-          <!-- END main-content -->
-                  <div class="col-md-12 col-lg-4 sidebar">
-                    <div class="sidebar-box search-form-wrap">
-                      <form action="#" class="search-form">
-                        <div class="form-group">
-                          <span class="icon fa fa-search"></span>
-                          <input type="search" class="form-control" id="s" placeholder="Type a keyword and hit enter">
-                        </div>
-                      </form>
-                    </div>
-                    <!-- END sidebar-box -->
-                    <div class="sidebar-box">
-                      <div class="bio text-center">
-                        <img src="images/author.jpg" alt="Image Placeholder" class="img-fluid">
-                        <div class="bio-body">
-                          <h2>Bankole Ahmed</h2>
-                          <p>I am a developer that loves building awesome web applications with javascript and wrting tech articles for fun.</p>
-                          <p><a href="/about" class="btn btn-primary btn-sm rounded">Read my bio</a></p>
-                          <p class="social">
-                            <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
-                            <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
-                            <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
-                            <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
         </div>
       </div>
-    </section>
+  </section>
