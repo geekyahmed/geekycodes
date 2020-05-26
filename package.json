@@ -29,5 +29,8 @@
     "socket.io": "^2.3.0",
     "sweetalert2": "^9.9.0",
     "wysiwyg-editor-node-sdk": "^3.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^7.1.2"
   }
 }

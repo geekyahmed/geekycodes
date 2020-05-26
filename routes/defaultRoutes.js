@@ -3,7 +3,7 @@ const router = express.Router();
 const defaultController = require('../controllers/defaultController');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const User = require('../models/UserModel').User;
 const storage = require('node-persist');
 
