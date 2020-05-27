@@ -13,6 +13,7 @@ const methodOverride = require('method-override');
 const { selectOption } = require('./config/customFunctions');
 const fileUpload = require('express-fileupload');
 const passport = require('passport');
+const compression = require('compression');
 
 const app = express();
 const seo = require('express-seo')(app);
@@ -63,6 +64,7 @@ mongoose.connect(mongoDbUrl, { useNewUrlParser: true })
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(compression())
 
 
 /*  Flash and Session*/
