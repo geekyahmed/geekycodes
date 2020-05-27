@@ -8,7 +8,6 @@
     <meta charset="utf-8">
   <meta name="fragment" content="!">
   <link rel=icon sizes=192x192 href="/assets/logo-192.png">
-  <meta name="theme-color" content="#0099ff" />
   <link rel="manifest" href="/manifest.json">  
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta property="og:title" content="Geeky Codes">
@@ -48,23 +47,5 @@ tinymce.init({
 
 <!-- Theme Style -->
 <link rel="stylesheet" href="/css/style.css">
-    <script>
-    
-    // ServiceWorker Registration
-    if('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw.js').then(function(registration) {
-                // Registration was successful
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                
-            }, function(err) {
-                // registration failed :(
-                console.log('ServiceWorker registration failed: ', err);
-            });
-        });
-    }
-    
-    </script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall"></script>
-    <pwa-install></pwa-install>
+
 </head>
