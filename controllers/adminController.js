@@ -46,7 +46,12 @@ module.exports = {
                     throw err;
             });
         }
-
+  const cloudinary = require('cloudinary').v2
+  cloudinary.config({
+      cloud_name: 'geekyahmed',
+      api_key: '759152538262282',
+      api_secret: 'TH8yLRArksXoy878_LWCK3NXd0Q'
+  })
         const newPost = new Post({
             title: req.body.title,
             description: req.body.description,
